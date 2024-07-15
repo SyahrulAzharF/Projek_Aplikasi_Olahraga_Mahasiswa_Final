@@ -7,7 +7,6 @@ import 'login_page.dart';
 import 'add_catatan_page.dart';
 import 'edit_catatan_page.dart';
 
-
 class HomePage extends StatelessWidget {
   final AuthService _authService = AuthService();
   final CatatanOlahragaService _catatanService = CatatanOlahragaService();
@@ -22,7 +21,8 @@ class HomePage extends StatelessWidget {
             icon: Icon(Icons.logout),
             onPressed: () async {
               await _authService.signOut();
-              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => LoginPage()));
+              Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (context) => LoginPageFb()));
             },
           ),
         ],
@@ -41,7 +41,8 @@ class HomePage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context) => AddCatatanPage()));
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => AddCatatanPage()));
         },
       ),
     );

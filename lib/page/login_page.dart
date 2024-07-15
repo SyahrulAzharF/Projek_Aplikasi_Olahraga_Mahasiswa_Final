@@ -4,7 +4,7 @@ import 'package:projek_aplikasi/service/auth_service.dart';
 import 'register_page.dart';
 import 'home_page.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPageFb extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final AuthService _authService = AuthService();
@@ -13,7 +13,7 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login'),
+        title: Text('Login fb'),
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
@@ -36,14 +36,16 @@ class LoginPage extends StatelessWidget {
                   _passwordController.text,
                 );
                 if (user != null) {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => HomePage()));
+                  Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => HomePage()));
                 }
               },
             ),
             TextButton(
               child: Text('Register'),
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => RegisterPage()));
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => RegisterPage()));
               },
             ),
           ],

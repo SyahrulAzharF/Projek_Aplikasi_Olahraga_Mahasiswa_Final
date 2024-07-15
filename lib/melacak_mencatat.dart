@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:projek_aplikasi/models/model_achievment.dart';
+import 'package:projek_aplikasi/service/service_achievment.dart';
 
 class MelacakMencatatPage extends StatefulWidget {
   const MelacakMencatatPage({Key? key}) : super(key: key);
@@ -10,12 +12,24 @@ class MelacakMencatatPage extends StatefulWidget {
 class _MelacakMencatatPageState extends State<MelacakMencatatPage> {
   final TextEditingController durationController = TextEditingController();
   final TextEditingController caloriesController = TextEditingController();
-  String dropdownValue = 'Running';
+  String dropdownValueActivity = 'Running';
+
+  final ServiceAchievment _achievmentService = ServiceAchievment();
 
   final List<String> sports = [
-    'Running', 'Swimming', 'Cycling', 'Basketball', 'Football',
-    'Tennis', 'Yoga', 'Pilates', 'Boxing', 'Dance',
-    'Gymnastics', 'Hiking', 'Rock Climbing'
+    'Running',
+    'Swimming',
+    'Cycling',
+    'Basketball',
+    'Football',
+    'Tennis',
+    'Yoga',
+    'Pilates',
+    'Boxing',
+    'Dance',
+    'Gymnastics',
+    'Hiking',
+    'Rock Climbing'
   ];
 
   // List to store achievements
@@ -43,10 +57,12 @@ class _MelacakMencatatPageState extends State<MelacakMencatatPage> {
             child: Align(
               alignment: Alignment.bottomCenter,
               child: Container(
-                padding: EdgeInsets.only(top: 100.0), // Adjust padding to move image down
+                padding: EdgeInsets.only(
+                    top: 100.0), // Adjust padding to move image down
                 child: Image.asset(
                   'aset_media/gambar/pencapaian.webp',
-                  fit: BoxFit.contain, // Adjust BoxFit to control the image size
+                  fit:
+                      BoxFit.contain, // Adjust BoxFit to control the image size
                 ),
               ),
             ),
@@ -81,7 +97,8 @@ class _MelacakMencatatPageState extends State<MelacakMencatatPage> {
                       controller: caloriesController,
                       decoration: InputDecoration(
                         labelText: 'Calories Burned',
-                        prefixIcon: Icon(Icons.local_fire_department, color: Colors.redAccent),
+                        prefixIcon: Icon(Icons.local_fire_department,
+                            color: Colors.redAccent),
                         border: OutlineInputBorder(),
                       ),
                       keyboardType: TextInputType.number,
@@ -92,21 +109,23 @@ class _MelacakMencatatPageState extends State<MelacakMencatatPage> {
                 Card(
                   elevation: 4.0,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 8.0, vertical: 4.0),
                     child: DropdownButtonFormField<String>(
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         filled: true,
                         fillColor: theme.canvasColor,
                       ),
-                      value: dropdownValue,
+                      value: dropdownValueActivity,
                       icon: const Icon(Icons.arrow_downward),
                       onChanged: (String? newValue) {
                         setState(() {
-                          dropdownValue = newValue!;
+                          dropdownValueActivity = newValue!;
                         });
                       },
-                      items: sports.map<DropdownMenuItem<String>>((String value) {
+                      items:
+                          sports.map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
                           child: Text(value),
@@ -119,25 +138,29 @@ class _MelacakMencatatPageState extends State<MelacakMencatatPage> {
                 ElevatedButton(
                   onPressed: () {
                     final DateTime now = DateTime.now();
-                    final String formattedDate = now.toString(); // Use the default toString() method
-                    
+                    final String formattedDate =
+                        now.toString(); // Use the default toString() method
+
                     showDialog(
                       context: context,
                       builder: (BuildContext context) => AlertDialog(
                         title: const Text('Save Achievement'),
-                        content: Text('Saving Data: Duration ${durationController.text} minutes, '
-                                      'Calories ${caloriesController.text}, Activity $dropdownValue'),
+                        content: Text(
+                            'Saving Data: Duration ${durationController.text} minutes, '
+                            'Calories ${caloriesController.text}, Activity $dropdownValueActivity'),
                         actions: <Widget>[
                           TextButton(
-                            onPressed: () {
-                              setState(() {
-                                achievements.add({
-                                  'duration': durationController.text,
-                                  'calories': caloriesController.text,
-                                  'activity': dropdownValue,
-                                  'timestamp': formattedDate,
-                                });
-                              });
+                            onPressed: () async {
+                              final achievment = ModelAchievment(
+                                id: '',
+                                duration: durationController.text,
+                                calories: caloriesController.text,
+                                activity: dropdownValueActivity,
+                                timestamp: DateTime.now(),
+                              );
+                              await _achievmentService
+                                  .addAchievment(achievment);
+
                               Navigator.of(context).pop();
                             },
                             child: const Text('OK'),
@@ -151,7 +174,8 @@ class _MelacakMencatatPageState extends State<MelacakMencatatPage> {
                     foregroundColor: theme.colorScheme.onPrimary,
                     elevation: 5,
                   ),
-                  child: const Text('Save Achievement', style: TextStyle(fontWeight: FontWeight.bold)),
+                  child: const Text('Save Achievement',
+                      style: TextStyle(fontWeight: FontWeight.bold)),
                 ),
                 SizedBox(height: 20),
                 // ListView to display achievements
@@ -162,9 +186,10 @@ class _MelacakMencatatPageState extends State<MelacakMencatatPage> {
                         elevation: 4.0,
                         child: ListTile(
                           title: Text('${achievement['activity']}'),
-                          subtitle: Text('Duration: ${achievement['duration']} minutes, '
-                                         'Calories: ${achievement['calories']}\n'
-                                         'Saved on: ${achievement['timestamp']}'),
+                          subtitle: Text(
+                              'Duration: ${achievement['duration']} minutes, '
+                              'Calories: ${achievement['calories']}\n'
+                              'Saved on: ${achievement['timestamp']}'),
                           trailing: IconButton(
                             icon: Icon(Icons.delete, color: Colors.redAccent),
                             onPressed: () {
