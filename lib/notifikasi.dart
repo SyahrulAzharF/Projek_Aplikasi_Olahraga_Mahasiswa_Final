@@ -37,17 +37,17 @@ class NotifikasiPage extends StatelessWidget {
               ListTile(
                 leading: Icon(Icons.notifications, color: Colors.blue),
                 title: Text('Turnamen Bola Voli'),
-                subtitle: Text('20 Mei 2024 - 09:00 AM'),
+                subtitle: Text('9 Juli 2024 - 09:00 AM'),
               ),
               ListTile(
                 leading: Icon(Icons.notifications, color: Colors.red),
                 title: Text('Latihan Futsal'),
-                subtitle: Text('22 Mei 2024 - 10:00 AM'),
+                subtitle: Text('22 Juli 2024 - 10:00 AM'),
               ),
               ListTile(
                 leading: Icon(Icons.notifications, color: Colors.green),
                 title: Text('Workshop Esport'),
-                subtitle: Text('25 Mei 2024 - 01:00 PM'),
+                subtitle: Text('25 Juli 2024 - 01:00 PM'),
               ),
             ],
           ),

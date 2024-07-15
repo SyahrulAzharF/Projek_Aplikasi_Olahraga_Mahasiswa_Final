@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1073648909920",
+    "project_id": "aplikasi-olahraga-mahasi-e8a84",
+    "storage_bucket": "aplikasi-olahraga-mahasi-e8a84.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1073648909920:android:d3fb48b4e13ba7174c8d05",
+        "android_client_info": {
+          "package_name": "com.example.projek_aplikasi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDN_f0tcFvTWejmZUrGPcNUHrP0ks46ThU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

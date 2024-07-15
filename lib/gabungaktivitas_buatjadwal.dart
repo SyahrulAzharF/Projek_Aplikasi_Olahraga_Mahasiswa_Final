@@ -96,7 +96,7 @@ class GabungAktivitasBuatJadwalPage extends StatelessWidget {
     return [
       _activityTile(
         context,
-        'Gabung ke Kelas Basket Aktivitas: Setiap Senin/Selasa',
+        'Gabung ke Kelas Basket\nAktivitas:\nSetiap Hari Senin/Selasa',
         Icons.sports_basketball,
         Colors.orange,
         "Apakah Anda yakin ingin bergabung dalam aktivitas Basket?",
@@ -105,7 +105,7 @@ class GabungAktivitasBuatJadwalPage extends StatelessWidget {
       ),
       _activityTile(
         context,
-        'Gabung ke Workshop Esport                        Aktivitas: Rabu/Kamis',
+        'Gabung ke Workshop Esport\nAktivitas:\nSetiap Hari Rabu/Kamis',
         Icons.videogame_asset,
         Colors.red,
         "Apakah Anda yakin ingin bergabung dalam aktivitas Esport?",
@@ -114,7 +114,7 @@ class GabungAktivitasBuatJadwalPage extends StatelessWidget {
       ),
       _activityTile(
         context,
-        'Gabung ke Kelas Catur Aktivitas: Jumat/Sabtu',
+        'Gabung ke Kelas Catur\nAktivitas:\nSetiap Hari Jumat/Sabtu',
         Icons.games,
         Colors.brown,
         "Apakah Anda yakin ingin bergabung dalam aktivitas Catur?",

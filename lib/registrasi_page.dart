@@ -65,7 +65,14 @@ class _RegistrationPageState extends State<RegistrationPage> {
               key: _formKey,
               child: Column(
                 children: <Widget>[
-                  TextFormField(
+                   Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(Radius.circular(
+                              30) //                 <--- border radius here
+                          ),
+                    ),
+                  child: TextFormField(
                     controller: nameController,
                     decoration: InputDecoration(
                       labelText: 'Full Name',
@@ -87,8 +94,16 @@ class _RegistrationPageState extends State<RegistrationPage> {
                       return null;
                     },
                   ),
+                ),
                   SizedBox(height: 20),
-                  TextFormField(
+                   Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(Radius.circular(
+                              30) //                 <--- border radius here
+                          ),
+                    ),
+                  child: TextFormField(
                     controller: emailController,
                     decoration: InputDecoration(
                       labelText: 'Email',
@@ -112,6 +127,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                       return null;
                     },
                   ),
+                ),
                   SizedBox(height: 20),
                   Container(
                     decoration: BoxDecoration(
@@ -145,7 +161,14 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     ),
                   ),
                   SizedBox(height: 20),
-                  TextFormField(
+                   Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(Radius.circular(
+                              30) //                 <--- border radius here
+                          ),
+                    ),
+                  child: TextFormField(
                     controller: confirmPasswordController,
                     obscureText: true,
                     decoration: InputDecoration(
@@ -167,6 +190,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                       return null;
                     },
                   ),
+                ),
                   SizedBox(height: 40),
                   ElevatedButton(
                     onPressed: _register,
