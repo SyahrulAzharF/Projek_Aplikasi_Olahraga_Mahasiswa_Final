@@ -6,7 +6,7 @@ import '../models/catatan_olahraga.dart';
 class AddCatatanPage extends StatelessWidget {
   final TextEditingController _durationController = TextEditingController();
   final TextEditingController _activityController = TextEditingController();
-  final CatatanOlahragaService _catatanService = CatatanOlahragaService();
+  final AchievementService _catatanService = AchievementService();
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class AddCatatanPage extends StatelessWidget {
             ElevatedButton(
               child: Text('Simpan'),
               onPressed: () async {
-                final catatan = CatatanOlahraga(
+                final catatan = AchievementOlahraga(
                   id: '',
                   duration: _durationController.text,
                   activity: _activityController.text,

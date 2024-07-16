@@ -9,7 +9,7 @@ import 'edit_catatan_page.dart';
 
 class HomePage extends StatelessWidget {
   final AuthService _authService = AuthService();
-  final CatatanOlahragaService _catatanService = CatatanOlahragaService();
+  final AchievementService _catatanService = AchievementService();
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      body: StreamBuilder<List<CatatanOlahraga>>(
+      body: StreamBuilder<List<AchievementOlahraga>>(
         stream: _catatanService.getCatatan(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {

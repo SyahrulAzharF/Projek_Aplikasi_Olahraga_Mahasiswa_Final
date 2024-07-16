@@ -3,10 +3,10 @@ import 'package:projek_aplikasi/service/catatan_olahraga_service.dart';
 import '../models/catatan_olahraga.dart';
 
 class EditCatatanPage extends StatelessWidget {
-  final CatatanOlahraga catatan;
+  final AchievementOlahraga catatan;
   final TextEditingController _durationController;
   final TextEditingController _activityController;
-  final CatatanOlahragaService _catatanService = CatatanOlahragaService();
+  final AchievementService _catatanService = AchievementService();
 
   EditCatatanPage({required this.catatan})
       : _durationController = TextEditingController(text: catatan.duration),
@@ -33,7 +33,7 @@ class EditCatatanPage extends StatelessWidget {
             ElevatedButton(
               child: Text('Update'),
               onPressed: () async {
-                final updatedCatatan = CatatanOlahraga(
+                final updatedCatatan = AchievementOlahraga(
                   id: catatan.id,
                   duration: _durationController.text,
                   activity: _activityController.text,

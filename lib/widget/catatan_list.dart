@@ -4,8 +4,8 @@ import 'package:projek_aplikasi/service/catatan_olahraga_service.dart';
 import '../models/catatan_olahraga.dart';
 
 class CatatanList extends StatelessWidget {
-  final List<CatatanOlahraga> catatanList;
-  final CatatanOlahragaService _catatanService = CatatanOlahragaService();
+  final List<AchievementOlahraga> catatanList;
+  final AchievementService _catatanService = AchievementService();
 
   CatatanList({required this.catatanList});
 

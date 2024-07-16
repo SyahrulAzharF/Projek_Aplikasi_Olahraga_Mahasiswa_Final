@@ -1,15 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../models/catatan_olahraga.dart';
 
-class CatatanOlahragaService {
+class AchievementService {
   final CollectionReference _catatanCollection =
       FirebaseFirestore.instance.collection('catatan_olahraga');
 
-  Future<void> addCatatan(CatatanOlahraga catatan) {
+  Future<void> addCatatan(AchievementOlahraga catatan) {
     return _catatanCollection.add(catatan.toMap());
   }
 
-  Future<void> updateCatatan(CatatanOlahraga catatan) {
+  Future<void> updateCatatan(AchievementOlahraga catatan) {
     return _catatanCollection.doc(catatan.id).update(catatan.toMap());
   }
 
@@ -17,11 +17,14 @@ class CatatanOlahragaService {
     return _catatanCollection.doc(id).delete();
   }
 
-  Stream<List<CatatanOlahraga>> getCatatan() {
+  Stream<List<AchievementOlahraga>> getCatatan() {
     return _catatanCollection.snapshots().map((snapshot) {
       return snapshot.docs.map((doc) {
-        return CatatanOlahraga.fromMap(doc.data() as Map<String, dynamic>, doc.id);
+        return AchievementOlahraga.fromMap(
+            doc.data() as Map<String, dynamic>, doc.id);
       }).toList();
     });
   }
+
+  deleteAchievment(String id) {}
 }

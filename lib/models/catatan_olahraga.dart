@@ -1,10 +1,10 @@
-class CatatanOlahraga {
+class AchievementOlahraga {
   String id;
   String duration;
   String activity;
   DateTime timestamp;
 
-  CatatanOlahraga({
+  AchievementOlahraga({
     required this.id,
     required this.duration,
     required this.activity,
@@ -20,8 +20,8 @@ class CatatanOlahraga {
     };
   }
 
-  static CatatanOlahraga fromMap(Map<String, dynamic> map, String id) {
-    return CatatanOlahraga(
+  static AchievementOlahraga fromMap(Map<String, dynamic> map, String id) {
+    return AchievementOlahraga(
       id: id,
       duration: map['duration'],
       activity: map['activity'],
